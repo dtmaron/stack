@@ -2,7 +2,7 @@ name: mysql_db
 
 services:
   db:
-    image: mysql:latest
+    image: mysql:5.7
     container_name: db
     restart: always
     environment:
@@ -11,7 +11,7 @@ services:
     networks:
       - network
     ports:
-      - "3308:3306"
+      - "3306:3306"
   adminer:
     image: adminer:latest
     container_name: adminer
@@ -35,3 +35,4 @@ services:
       - "8082:8082"
 networks:
   network:
+    driver:overlay
